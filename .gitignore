@@ -1,2 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
+/road_to_learn_react/node_modules/
+/road_to_learn_react/build/
