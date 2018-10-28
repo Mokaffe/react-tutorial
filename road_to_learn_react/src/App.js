@@ -20,7 +20,18 @@ const list = [
   },
 ];
 
-class App extends React.Component{
+// ES5
+// function isSearched(searchTerm) {
+//   return function(item) {
+//     return item.title.toLowerCase().includes(searchTerm.toLowerCase());
+//   }
+// }
+
+const isSearched = searchTerm => item =>
+  item.title.toLowerCase().includes(searchTerm.toLowerCase());
+
+
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,7 +45,7 @@ class App extends React.Component{
   }
 
   onSearchChange(event) {
-    this.setState({ searchTerm: event.target.value });
+    this.setState({searchTerm: event.target.value});
   }
 
 
@@ -49,33 +60,45 @@ class App extends React.Component{
   }
 
   render() {
+    const {list, searchTerm} = this.state;
     return (
       <div className="App">
-        <h1>表单交互</h1>
-        <form>
-          <input onChange={() => this.onSearchChange}
-            type="text"/>
-        </form>
-        <span>-----------------</span>
-        {this.state.list.map((item) =>
-          <div key={item.objectID}>
-            <span>
-              <a href={item.url}>{item.title}</a>
-            </span>
-            <span>{item.author}</span>
-            <span>{item.num_comments}</span>
-            <span>{item.points}</span>
-            <span>
-              <button onClick={() => this.onDismiss(item.objectID)}
-                      type="button">
-                Dismiss
-              </button>
-            </span>
-          </div>
-        )}
+        <Search value={searchTerm} onChange={this.onSearchChange}>Search test</Search>
+        <Table list={list} pattern={searchTerm} onDismiss={this.onDismiss}/>
       </div>
     );
   }
 }
+
+
+// 强制使用 props作为输入，JSX作为输出
+// 函数参数使用了解构方式
+// const { value, onChange, children } = props;
+const Search = ({value, onChange, children}) => {
+  return (
+    <form>
+      {children}<input type="text" value={value} onChange={onChange}></input>
+    </form>
+  );
+};
+
+
+const Table = ({ list, pattern, onDismiss }) =>
+  <div className="table">
+    {list.filter(isSearched(pattern)).map(item =>
+      <div key={item.objectID} className="table-row">
+        <span><a href={item.url}>{item.title}</a></span>
+        <span>{item.author}</span>
+        <span>{item.num_comments}</span>
+        <span>{item.points}</span>
+        <span>
+          <Button onClick={() => onDismiss(item.objectID)} className="button-inline">Dismiss</Button>
+        </span>
+      </div>
+    )}
+  </div>;
+
+const Button = ({onClick, className='', children}) =>
+  <button onClick={onClick} className={className} type="button">{children}</button>
 
 export default App;
