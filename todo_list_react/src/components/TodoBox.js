@@ -1,7 +1,7 @@
 import React from 'react'
 import TodoList from './TodoList'
 import TodoForm from './TodoForm'
-import { generateId, addTodo} from '../utility/todoHelpers'
+import { generateId, addTodo } from '../utility/todoHelpers'
 
 class TodoBox extends React.Component {
     constructor(props) {
@@ -17,7 +17,8 @@ class TodoBox extends React.Component {
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
-
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleEmptySubmit = this.handleEmptySubmit.bind(this)
     }
 
 
@@ -27,11 +28,18 @@ class TodoBox extends React.Component {
         const newTaskId = generateId();
         const newTask = { "id": newTaskId, "task": this.state.currentTodoTask, "isComplete": false }
         const updatedAllTask = addTodo(this.state.allTask, newTask)
-        this.setState({ 
+        this.setState({
             allTask: updatedAllTask,
-            currentTodo: '',
+            currentTodoTask: '',
             errorMessage: ''
         });
+    }
+
+    handleEmptySubmit(event) {
+        event.preventDefault();
+        this.setState({
+            errorMessage: "Please enter a valid todo task."
+        })
     }
 
     handleInputChange(event) {
@@ -44,12 +52,13 @@ class TodoBox extends React.Component {
         return (
             <div className="well">
                 <TodoList allTask={this.state.allTask} />
+                <hr />
+                {this.state.errorMessage && <p style={{ 'color': 'red' }}>{this.state.errorMessage}</p>}
                 <TodoForm
                     handleInputChange={this.handleInputChange}
-                    currentTodo={this.state.currentTodoTask}
+                    currentTodoTask={this.state.currentTodoTask}
                     handleSubmit={this.state.currentTodoTask ? this.handleSubmit : this.handleEmptySubmit}
                 />
-                test git hook
             </div>
         )
     }
