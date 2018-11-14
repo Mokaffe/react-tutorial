@@ -49,6 +49,7 @@ class TodoBox extends React.Component {
                     currentTodo={this.state.currentTodoTask}
                     handleSubmit={this.state.currentTodoTask ? this.handleSubmit : this.handleEmptySubmit}
                 />
+                test git hook
             </div>
         )
     }
