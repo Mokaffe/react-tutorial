@@ -1,20 +1,17 @@
 import React from 'react'
-
-// class TodoItem extends React.Component {
-//     render() {
-//         var task = this.props.task;
-//         return (
-//             <li>
-//                 <input type="checkbox" />{task}
-//             </li>
-//         );
-//     }
-// }
+import { partial } from '../utility/todoHelpers'
 
 const TodoItem = props => {
+
+    const toggleComplete = partial(props.toggleComplete, props.taskId);
+    const task = props.isComplete ? <s>{props.task}</s> : <span>{props.task}</span>;
     return (
         <li>
-            <input type="checkbox" />{props.task}
+            <input type="checkbox" checked={props.isComplete} onChange={toggleComplete} />
+            {task}
+            <div className="pull-right">
+                <button type="button" className="btn btn-xs close">删除</button>
+            </div>
         </li>
     );
 }

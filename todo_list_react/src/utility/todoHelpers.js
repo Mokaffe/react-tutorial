@@ -4,4 +4,6 @@ export const generateId = () => {
 
 export const addTodo = (list, item) => {
     return list.concat(item);
-  };
+};
+
+export const partial = (fn, ...args) => fn.bind(null, ...args);

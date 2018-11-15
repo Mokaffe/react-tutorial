@@ -18,7 +18,9 @@ class TodoBox extends React.Component {
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleEmptySubmit = this.handleEmptySubmit.bind(this)
+        this.handleEmptySubmit = this.handleEmptySubmit.bind(this);
+        this.handleDeleteTask = this.handleDeleteTask.bind(this);
+        this.handleToggleComplete = this.handleToggleComplete.bind(this);
     }
 
 
@@ -48,10 +50,30 @@ class TodoBox extends React.Component {
         })
     }
 
+    handleDeleteTask(event) {
+
+    }
+
+    handleToggleComplete(taskId) {
+        const allTask = this.state.allTask;
+        console.log(taskId, "task Id")
+        for(let task of allTask){
+            if (task.id === taskId){
+                task.isComplete = task.isComplete === true ? false: true;
+            }
+        }
+
+        this.setState({allTask});
+    }
+
     render() {
         return (
             <div className="well">
-                <TodoList allTask={this.state.allTask} />
+                <h1 className="text-center">React Todo</h1>
+                <TodoList
+                    allTask={this.state.allTask}
+                    toggleComplete={this.handleToggleComplete}
+                />
                 <hr />
                 {this.state.errorMessage && <p style={{ 'color': 'red' }}>{this.state.errorMessage}</p>}
                 <TodoForm
