@@ -1,6 +1,7 @@
 import React from 'react'
 import TodoList from './TodoList'
 import TodoForm from './TodoForm'
+import TodoFooter from './TodoFooter'
 import { generateId, addTodo } from '../utility/todoHelpers'
 
 class TodoBox extends React.Component {
@@ -19,7 +20,6 @@ class TodoBox extends React.Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleEmptySubmit = this.handleEmptySubmit.bind(this);
-        this.handleDeleteTask = this.handleDeleteTask.bind(this);
         this.handleToggleComplete = this.handleToggleComplete.bind(this);
     }
 
@@ -50,23 +50,20 @@ class TodoBox extends React.Component {
         })
     }
 
-    handleDeleteTask(event) {
-
-    }
-
     handleToggleComplete(taskId) {
         const allTask = this.state.allTask;
-        console.log(taskId, "task Id")
-        for(let task of allTask){
-            if (task.id === taskId){
-                task.isComplete = task.isComplete === true ? false: true;
+        for (let task of allTask) {
+            if (task.id === taskId) {
+                task.isComplete = task.isComplete === true ? false : true;
             }
         }
 
-        this.setState({allTask});
+        this.setState({ allTask });
     }
 
+
     render() {
+
         return (
             <div className="well">
                 <h1 className="text-center">React Todo</h1>
