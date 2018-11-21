@@ -15,7 +15,7 @@ const isSearched = searchTerm => item =>
   item.title.toLowerCase().includes(searchTerm.toLowerCase());
 
 
-class App extends React.Component {
+class AppRoad extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -129,4 +129,4 @@ const Table = ({list, onDismiss}) =>
 const Button = ({onClick, className = '', children}) =>
   <button onClick={onClick} className={className} type="button">{children}</button>
 
-export default App;
+export default AppRoad;

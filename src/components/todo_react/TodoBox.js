@@ -1,8 +1,7 @@
 import React from 'react'
 import TodoList from './TodoList'
 import TodoForm from './TodoForm'
-import TodoFooter from './TodoFooter'
-import { generateId, addTodo } from '../utility/todoHelpers'
+import { generateId, addTodo } from '../../utility/todoHelpers'
 
 class TodoBox extends React.Component {
     constructor(props) {

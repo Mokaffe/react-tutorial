@@ -1,5 +1,5 @@
 import React from 'react'
-import { partial } from '../utility/todoHelpers'
+import { partial } from '../../utility/todoHelpers'
 
 const TodoItem = props => {
 
