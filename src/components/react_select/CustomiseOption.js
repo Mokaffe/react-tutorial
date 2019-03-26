@@ -7,20 +7,21 @@ const style = {
   select: {
     container: (provided) => ({
       ...provided,
-      width: 470,
-      height: 40
+      width: 300,
+      // height: 400,
     }),
     control: (provided) => ({
       ...provided,
-      width: 470,
-      height: 38,
+      width: 500,
+      minHeight: 40,
       fontSize: 14,
       '&:hover': {borderColor: 'none'},
       border: '1px solid lightgray',
       boxShadow: 'none',
     }),
     input: (provided) => ({
-      '&:focus': {backgroundColor: 'red'}
+      '&:focus': {backgroundColor: 'red'},
+      // backgroundColor: 'red',
     }),
     indicatorSeparator: () => ({
       display: 'none'
@@ -55,8 +56,8 @@ class CustomiseOption extends React.Component {
           }}
           isMulti
           isClearable={true}
-          defaultMenuIsOpen={true}
-          maxMenuHeight={500}
+          // defaultMenuIsOpen={true}
+          maxMenuHeight={300}
           placeholder="select user here..."
         />
       </div>
