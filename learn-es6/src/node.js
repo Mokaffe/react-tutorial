@@ -41,5 +41,5 @@ console.log(a)
 
 var bindFoo1 = bar.bind(foo, "Merry", 18);
 console.log(bindFoo1);
-b = bindFoo1();
+reSelectProductIdList = bindFoo1();
 console.log(b);

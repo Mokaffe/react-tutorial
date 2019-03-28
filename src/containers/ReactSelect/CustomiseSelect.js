@@ -1,17 +1,22 @@
 import React from 'react'
 import CustomiseOption from '../../components/react_select/CustomiseOption';
 import GitHubDemo from "../../components/react_select/GitHubDemo";
+import OnChangeDemo from "../../components/react_select/OnChangeDemo";
+import SingleSelect from "../../components/react_select/SingleSelect";
 
 const DEMO_CONFIG = [
-  <GitHubDemo/>,
-  <CustomiseOption/>,
+  {title: 'GitHub Page Demo' ,component: <GitHubDemo/>},
+  {title: 'Customise Options' ,component: <CustomiseOption/>},
+  {title: 'OnChange Demo' ,component:<OnChangeDemo/>},
+  {title: 'Single Select & Adjust Style' ,component:<SingleSelect/>},
 ];
 
 class CustomiseSelect extends React.Component {
   render() {
     const demoList = DEMO_CONFIG.map(demo => (
       <div style={{marginTop: '50px'}}>
-        {demo}
+        <div style={{margin: '10px'}} >{demo.title}</div>
+        {demo.component}
       </div>
     ));
     return (

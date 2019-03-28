@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from 'react-select';
 import {MyOptionComponent, NoOptionsMessage} from './MyOptionComponent'
-import userInfoOptions from "./UserInfo";
+import {userInfoOptions} from "./data";
 
 const style = {
   select: {

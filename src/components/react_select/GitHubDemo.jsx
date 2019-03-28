@@ -27,7 +27,8 @@ class GitHubDemo extends React.Component {
         onChange={this.handleChange}
         options={options}
         isMulti
-        defaultMenuIsOpen={true}
+        // defaultMenuIsOpen={true}
+        classNamePrefix={"mokaffe"}
       />
     );
   }
