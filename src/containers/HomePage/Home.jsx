@@ -16,7 +16,7 @@ const style = {
 const Home = () => {
   return (
     <div>
-      <div style={style.item}><Link style={style.link} to={`/form_validation`}>表单校验</Link></div>
+      <div style={style.item}><Link style={style.link} to={`/rc_form`}>rc-form</Link></div>
       <div style={style.item}><Link style={style.link} to={`/todo_list`}>to do list</Link></div>
       <div style={style.item}><Link style={style.link} to={`/road_to_learn_react/1`}>road_to_learn_react</Link></div>
       <div style={style.item}><Link style={style.link} to={`/react-select`}>react-select 学习</Link></div>

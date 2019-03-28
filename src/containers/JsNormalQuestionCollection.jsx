@@ -1,13 +1,6 @@
 import React from 'react'
 
-const dataQuestion= [
-  {
-    name: '小数点变成百分比',
-    description: '',
-  }
-];
-
-class JsNormalQuestionCollection extends React.Component{
+class JsNormalQuestionCollection extends React.Component {
 
   render() {
     return (
@@ -28,7 +21,6 @@ class JsNormalQuestionCollection extends React.Component{
           // 需求就是去0，使用parseFloat就可以了
           parseFloat(num) + '%'
         </div>
-
       </div>
     );
   }

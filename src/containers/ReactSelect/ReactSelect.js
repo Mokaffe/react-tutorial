@@ -5,16 +5,16 @@ import OnChangeDemo from "../../components/react_select/OnChangeDemo";
 import SingleSelect from "../../components/react_select/SingleSelect";
 
 const DEMO_CONFIG = [
-  {title: 'GitHub Page Demo' ,component: <GitHubDemo/>},
-  {title: 'Customise Options' ,component: <CustomiseOption/>},
-  {title: 'OnChange Demo' ,component:<OnChangeDemo/>},
-  {title: 'Single Select & Adjust Style' ,component:<SingleSelect/>},
+  {id: 1, title: 'GitHub Page Demo' ,component: <GitHubDemo/>},
+  {id: 2, title: 'Customise Options' ,component: <CustomiseOption/>},
+  {id: 3, title: 'OnChange Demo' ,component:<OnChangeDemo/>},
+  {id: 4, title: 'Single Select & Adjust Style' ,component:<SingleSelect/>},
 ];
 
-class CustomiseSelect extends React.Component {
+class ReactSelect extends React.Component {
   render() {
     const demoList = DEMO_CONFIG.map(demo => (
-      <div style={{marginTop: '50px'}}>
+      <div key={demo.id} style={{marginTop: '50px'}}>
         <div style={{margin: '10px'}} >{demo.title}</div>
         {demo.component}
       </div>
@@ -31,4 +31,4 @@ class CustomiseSelect extends React.Component {
   }
 }
 
-export default CustomiseSelect;
+export default ReactSelect;
