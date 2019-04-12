@@ -16,6 +16,9 @@ const style = {
 const Home = () => {
   return (
     <div>
+      <div style={style.item}><Link style={style.link} to={`/joi`}>joi</Link></div>
+      <div style={style.item}><Link style={style.link} to={`/ajv_another_json_schema_validator`}>ajv_another_json_schema_validator</Link></div>
+      <div style={style.item}><Link style={style.link} to={`/react_jsonschema_form`}>react_jsonschema_form</Link></div>
       <div style={style.item}><Link style={style.link} to={`/rc_form`}>rc-form</Link></div>
       <div style={style.item}><Link style={style.link} to={`/todo_list`}>to do list</Link></div>
       <div style={style.item}><Link style={style.link} to={`/road_to_learn_react/1`}>road_to_learn_react</Link></div>

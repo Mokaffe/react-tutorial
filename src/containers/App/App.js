@@ -7,6 +7,9 @@ import Home from "../HomePage/Home";
 import Header from "../HomePage/Header";
 import RcForm from "../Form/RcForm";
 import ReactSelect from "../ReactSelect/ReactSelect";
+import ReactJsonSchemaForm from "../ReactJsonSchemaForm/ReactJsonSchemaForm";
+import AnotherJsonSchemaValidator from "../AnotherJsonSchemaValidator";
+import JoiValidation from "../JoiValidation";
 
 const style = {
   mainPage: {
@@ -26,6 +29,9 @@ class App extends React.Component {
               <div>
                 <Switch>
                   <Route exact path='/' component={Home}/>
+                  <Route exact path='/joi' component={JoiValidation}/>
+                  <Route exact path='/ajv_another_json_schema_validator' component={AnotherJsonSchemaValidator}/>
+                  <Route exact path='/react_jsonschema_form' component={ReactJsonSchemaForm}/>
                   <Route exact path='/react-select' component={ReactSelect}/>
                   <Route exact path='/rc_form' component={RcForm}/>
                   <Route exact path='/js-normal-q' component={JsNormalQuestionCollection}/>
