@@ -57,7 +57,7 @@ class CustomiseOption extends React.Component {
           isMulti
           isClearable={true}
           // defaultMenuIsOpen={true}
-          maxMenuHeight={300}
+          maxMenuHeight={100}
           placeholder="select user here..."
         />
       </div>

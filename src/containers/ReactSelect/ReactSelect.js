@@ -2,13 +2,15 @@ import React from 'react'
 import CustomiseOption from '../../components/react_select/CustomiseOption';
 import GitHubDemo from "../../components/react_select/GitHubDemo";
 import OnChangeDemo from "../../components/react_select/OnChangeDemo";
-import SingleSelect from "../../components/react_select/SingleSelect";
+import RedocContainer from "../../components/react_select/RedocTry";
+import Test from "../../components/react_select/Test";
 
 const DEMO_CONFIG = [
   {id: 1, title: 'GitHub Page Demo' ,component: <GitHubDemo/>},
   {id: 2, title: 'Customise Options' ,component: <CustomiseOption/>},
   {id: 3, title: 'OnChange Demo' ,component:<OnChangeDemo/>},
-  {id: 4, title: 'Single Select & Adjust Style' ,component:<SingleSelect/>},
+  {id: 4, title: 'Single Select & Adjust Style' ,component:<RedocContainer/>},
+  {id: 5, title: 'test tmp' ,component:<Test/>},
 ];
 
 class ReactSelect extends React.Component {
